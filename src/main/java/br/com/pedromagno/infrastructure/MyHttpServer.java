@@ -1,11 +1,19 @@
 package br.com.pedromagno.infrastructure;
 
+import br.com.pedromagno.service.Router;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+
+/**
+ * Esta classe inicia o servidor (ServerSocket), aceita conexões e delega para o ClientHandler.
+ *
+ * @author Pedro Magno
+ * @since 11/05/2025
+ */
 
 public class MyHttpServer {
     private final int port;
@@ -19,43 +27,6 @@ public class MyHttpServer {
         return port;
     }
 
-    private void handleClient(Socket clientSocket) {
-        try{
-            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
-
-            // Lê a primeira linha da requisição (Método, caminho, versão)
-            String requestMessage = in.readLine();
-            if(requestMessage == null || requestMessage.isEmpty()){
-                return;
-            }
-
-            System.out.println("Requisição recebida: " + requestMessage);
-            LOGGER.info("LOGGER - Requisição recebida: " + requestMessage);
-
-            String body = "Hello from MyOwnHttpServer!";
-            String response = "HTTP/1.1 200 OK\r\n" +
-                    "Content-Type: text/plain\r\n" +
-                    "Content-Length: " + body.length() + "\r\n" +
-                    "Connection: close\r\n" +
-                    "\r\n" +
-                    body;
-
-            out.write(response);
-            out.flush();
-        } catch (IOException e) {
-            System.err.println("Erro ao processar o clientSocket: " + e.getMessage());
-            LOGGER.error("LOGGER - Erro ao processar o clientSocket: " + e.getMessage());
-        } finally {
-            try{
-                clientSocket.close();
-            } catch (IOException e) {
-                System.err.println("Erro ao fechar o clienteSocket: " + e.getMessage());
-                LOGGER.error("Erro ao fechar o clienteSocket: " + e.getMessage());
-            }
-        }
-    }
-
     public void start(){
         try {
             ServerSocket serverSocket = new ServerSocket(port);
@@ -66,7 +37,9 @@ public class MyHttpServer {
             while(true){
                 Socket clientSocket = serverSocket.accept();
                 LOGGER.info("Cliente conectado: " + clientSocket.getInetAddress().getHostAddress());
-                handleClient(clientSocket);
+                ClientHandler clientHandler = new ClientHandler(clientSocket, new Router());
+                Thread thread = new Thread(clientHandler);
+                thread.start();
             }
         } catch (IOException e) {
             LOGGER.error("Falha ao iniciar o servidor: " + e.getMessage());
