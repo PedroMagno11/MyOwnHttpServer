@@ -1,5 +1,7 @@
 package br.com.pedromagno.service;
 
+import br.com.pedromagno.adapter.file.FileResult;
+import br.com.pedromagno.adapter.file.StaticFileReader;
 import br.com.pedromagno.domain.HttpRequest;
 import br.com.pedromagno.domain.HttpResponse;
 
@@ -30,29 +32,14 @@ public class Router {
         }
 
         if(path.startsWith("/static/")){
-            return serveStaticFile(path.substring("/static/".length()));
+            FileResult file = StaticFileReader.read(path.substring("/static/".length()));
+
+            if(!file.found()) {
+                return HttpResponse.notFound();
+            }
+            return HttpResponse.ok(file.content(), file.contentType());
         }
 
         return HttpResponse.notFound();
-    }
-
-    private HttpResponse serveStaticFile(String filePath){
-        File file = new File("public", filePath);
-        if(!file.exists() || file.isDirectory()){
-            return HttpResponse.notFound();
-        }
-
-        try{
-            byte[] contentBytes = Files.readAllBytes(file.toPath());
-            String contentType = Files.probeContentType(file.toPath());
-
-
-            HttpResponse response = HttpResponse.ok(contentBytes, contentType != null ? contentType : "application/octet-stream");
-            response.addHeader("Content-Length", String.valueOf(contentBytes.length));
-            return response;
-
-        } catch(IOException e){
-            return HttpResponse.notFound();
-        }
     }
 }
