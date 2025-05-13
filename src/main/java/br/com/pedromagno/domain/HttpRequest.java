@@ -8,7 +8,7 @@ public class HttpRequest {
     private String path;
     private String version;
     private Map<String, String> headers = new HashMap<>();
-    private String body;
+    private byte[] body;
 
     public String getMethod() {
         return method;
@@ -42,11 +42,11 @@ public class HttpRequest {
         this.headers = headers;
     }
 
-    public String getBody() {
+    public byte[] getBody() {
         return body;
     }
 
-    public void setBody(String body) {
+    public void setBody(byte[] body) {
         this.body = body;
     }
 }
