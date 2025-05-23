@@ -82,7 +82,8 @@ public class RouterTest {
     }
 
     @Test
-    @DisplayName("Deve retornar status 404 quando o caminho requisitado for desconhecido") void shouldReturn404ForUnknowPath(){
+    @DisplayName("Deve retornar status 404 quando o caminho requisitado for desconhecido")
+    void shouldReturn404ForUnknowPath(){
         HttpRequest request = new HttpRequest();
         request.setMethod("GET");
         request.setPath("/desconhecido");
