@@ -25,12 +25,11 @@ Criar um servidor HTTP funcional que:
 
 ```
 /MyOwnHttpServer
-├── /src          # Código-fonte do servidor
-├── /public       # Arquivos estáticos servidos (html, css, etc)
-├── /tests        # Testes unitários e manuais
-├── /docs         # Documentação do projeto
-├── /logs         # Arquivos de log
-└── README.md     # Este arquivo
+├── /src          
+|    └── /main     # Código-fonte do servidor
+|    └── /test     # Testes unitários
+├── /public        # Arquivos estáticos servidos (html, css, etc)
+└── README.md      # Este arquivo
 ```
 
 ## 📄 Licença
