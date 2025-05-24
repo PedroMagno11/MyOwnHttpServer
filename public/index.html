@@ -4,10 +4,193 @@
     <meta charset="UTF-8">
     <title>My Own Http Server</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
+<header>
     <h1>Welcome to my own http server!</h1>
-    <img src="images/tubarissil.png" alt="tubarissil">
+    <p>Visualização de Navios da Marinha do Brasil</p>
+</header>
+<main>
+    <div class="navios">
+        <h2> Meios Navais</h2>
+        <div class="meios">
+            <h2 class="titulo-blocos">Meios da Esquadra</h2>
+
+            <div class="cards-grid">
+
+                <div class="card">
+                    <img src="https://www.marinha.mil.br/sites/default/files/a-140.png" alt="a140 atlantico">
+                    <div class="card-content">
+                        <h3>Navio-Aeródromo Multipropósito</h3>
+                        <ul class="lista-personalizada">
+                            <li data-codigo="A140">Atlântico</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://www.marinha.mil.br/sites/default/files/02_31.jpg?s13839d1518780192" alt="Fragatas" />
+                    <div class="card-content">
+                        <h3>Fragatas</h3>
+                        <p>Classe Niterói</p>
+                        <ul class="lista-personalizada">
+                            <li data-codigo="F41">Defensora</li>
+                            <li data-codigo="F42">Constituição</li>
+                            <li data-codigo="F43">Liberal</li>
+                            <li data-codigo="F44">Independência</li>
+                            <li data-codigo="F45">União</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://www.marinha.mil.br/sites/default/files/03_23.jpg?s14116d1518780241" alt="Fregatas" />
+                    <div class="card-content">
+                        <h3>Fragatas</h3>
+                        <p>Classe Greenhalgh</p>
+                        <ul class="lista-personalizada">
+                            <li data-codigo="F49">Rademaker</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://www.marinha.mil.br/sites/default/files/04_18.jpg?s14462d1518780286" alt="Corvetas" />
+                    <div class="card-content">
+                        <h3>Corvetas</h3>
+                        <p>Classe Inhaúma</p>
+                        <ul class="lista-personalizada">
+                            <li data-codigo="V32">Júlio de Noronha</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://www.marinha.mil.br/sites/default/files/05_19.jpg?s14353d1518780354" alt="Corvetas" />
+                    <div class="card-content">
+                        <h3>Corvetas</h3>
+                        <p>Classe Barroso</p>
+                        <ul class="lista-personalizada">
+                            <li data-codigo="V34">Barroso</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://www.marinha.mil.br/sites/default/files/06_17.jpg?s11045d1518780391" alt="Submarinos" />
+                    <div class="card-content">
+                        <h3>Submarinos</h3>
+                        <p>Classe Tupi</p>
+                        <ul class="lista-personalizada">
+                            <li data-codigo="S30">Tupi</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://www.marinha.mil.br/sites/default/files/06_17.jpg?s11045d1518780391" alt="Submarinos" />
+                    <div class="card-content">
+                        <h3>Submarinos</h3>
+                        <p>Classe Tikuna</p>
+                        <ul class="lista-personalizada">
+                            <li data-codigo="S34">Tikuna</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://www.marinha.mil.br/sites/default/files/s40_0.jpg" alt="Submarinos" />
+                    <div class="card-content">
+                        <h3>Submarinos</h3>
+                        <p>Classe Riachuelo</p>
+                        <ul class="lista-personalizada">
+                            <li data-codigo="S40">Riachuelo</li>
+                            <li data-codigo="S41">Humaitá</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://www.marinha.mil.br/sites/default/files/08_18.jpg?s16876d1518780459" alt="navio" />
+                    <div class="card-content">
+                        <h3>Navio de Socorro Submarino</h3>
+                        <ul class="lista-personalizada">
+                            <li data-codigo="K120">Guillobel</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://www.marinha.mil.br/sites/default/files/10_17.jpg?s2737d1518780540" alt="navio" />
+                    <div class="card-content">
+                        <h3>Navio Doca Multipropósito</h3>
+                        <ul class="lista-personalizada">
+                            <li data-codigo="G40">Bahia</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://www.marinha.mil.br/sites/default/files/09_15.jpg?s12582d1518780493" alt="navio" />
+                    <div class="card-content">
+                        <h3>Navio de Desembarque de Carros de Combate</h3>
+                        <ul class="lista-personalizada">
+                            <li data-codigo="G25">Almirante Saboia</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://www.marinha.mil.br/sites/default/files/11_13.jpg?s13239d1518780574" alt="navio" />
+                    <div class="card-content">
+                        <h3>Navio Escola</h3>
+                        <ul class="lista-personalizada">
+                            <li data-codigo="U27">Brasil</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://www.marinha.mil.br/sites/default/files/12_10.jpg?s14445d1518780609" alt="navio" />
+                    <div class="card-content">
+                        <h3>Navio Tanque</h3>
+                        <ul class="lista-personalizada">
+                            <li data-codigo="G23">Almirante Gastão Motta</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://www.marinha.mil.br/sites/default/files/13_8.jpg?s20548d1518780637" alt="navio" />
+                    <div class="card-content">
+                        <h3>Navio-Veleiro</h3>
+                        <ul class="lista-personalizada">
+                            <li data-codigo="U20">Cisne Branco</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="https://www.marinha.mil.br/sites/default/files/14_3.jpg?s11188d1518780677" alt="navio" />
+                    <div class="card-content">
+                        <h3>Embarcação de Dbq. de Carga Geral</h3>
+                        <ul class="lista-personalizada">
+                            <li data-codigo="L10">Guarapari</li>
+                            <li data-codigo="L11">Tambaú</li>
+                            <li data-codigo="L12">Camboriú</li>
+                            <li data-codigo="L20">Marambaia</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</main>
     <script src="script.js" defer></script>
 </body>
 </html>
