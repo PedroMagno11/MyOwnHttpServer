@@ -22,6 +22,7 @@ public class ResponseWriter {
         }
 
         outputFromServer.flush();
+        outputFromServer.close();
     }
 
 }

@@ -30,9 +30,37 @@ public class RequestParser {
         request.setVersion(partes[2]);
 
         // Percorre por todo o cabeçalho
-        while (!(linha = reader.readLine()).isEmpty()){
-            String[] header = linha.split(": ", 2);
-            request.getHeaders().put(header[0], header[1]);
+        String headerLine;
+        while ((headerLine = reader.readLine()) != null && !headerLine.isEmpty()){
+            String[] header = headerLine.split(": ", 2);
+            if(header.length == 2){
+                request.getHeaders().put(header[0].trim(), header[1].trim());
+            }
+        }
+
+        // Verifica se tem corpo a ser lido
+        int contentLength = 0;
+        if(request.getHeaders().containsKey("Content-Length")){
+            try {
+                contentLength = Integer.parseInt(request.getHeaders().get("Content-Length"));
+            } catch (NumberFormatException e) {
+                contentLength = 0;
+            }
+        }
+
+        if(contentLength > 0){
+            byte[] body = new byte[contentLength];
+            int bytesRead = 0;
+            while (bytesRead < contentLength){
+                int result = input.read(body, bytesRead, contentLength - bytesRead);
+                if(result == -1){
+                    break;
+                }
+                bytesRead += result;
+            }
+            request.setBody(body);
+        } else {
+            request.setBody(new byte[0]);
         }
 
         return request;
