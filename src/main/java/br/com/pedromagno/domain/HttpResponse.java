@@ -2,6 +2,7 @@ package br.com.pedromagno.domain;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,6 +23,7 @@ public class HttpResponse {
         response.setBody(body);
         response.addHeader("Content-Type", contentType);
         response.addHeader("Content-Length", String.valueOf(body.length));
+        response.addHeader("Connection", "close");
         return response;
     }
 
@@ -33,6 +35,31 @@ public class HttpResponse {
         response.setBody(body);
         response.addHeader("Content-Type", "text/plain");
         response.addHeader("Content-Length", String.valueOf(body.length));
+        response.addHeader("Connection", "close");
+        return response;
+    }
+
+    public static HttpResponse badRequest(byte[] body) {
+        HttpResponse response = new HttpResponse();
+        response.setStatusCode(400);
+        response.setReasonPhrase("Bad Request");
+        response.setBody(body);
+        response.addHeader("Content-Type", "text/plain");
+        response.addHeader("Content-Length", String.valueOf(body.length));
+        response.addHeader("Connection", "close");
+        return response;
+    }
+
+    public static HttpResponse badRequestJson(String message) {
+        String json = "{\"error\":\"" + message.replace("\"", "\\\"") + "\"}";
+        byte[] body = json.getBytes(StandardCharsets.UTF_8);
+        HttpResponse response = new HttpResponse();
+        response.setStatusCode(400);
+        response.setReasonPhrase("Bad Request");
+        response.setBody(body);
+        response.addHeader("Content-Type", "application/json");
+        response.addHeader("Content-Length", String.valueOf(body.length));
+        response.addHeader("Connection", "close");
         return response;
     }
 
