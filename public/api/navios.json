@@ -1,0 +1,142 @@
+{
+  "meios": [
+    {
+      "codigo": "A140",
+      "nome": "Atlântico",
+      "categoria": "Navio-Aeródromo Multipropósito",
+      "classe": ""
+    },
+    {
+      "codigo": "F41",
+      "nome": "Defensora",
+      "categoria": "Fragatas",
+      "classe": "Classe Niterói"
+    },
+    {
+      "codigo": "F42",
+      "nome": "Constituição",
+      "categoria": "Fragatas",
+      "classe": "Classe Niterói"
+    },
+    {
+      "codigo": "F43",
+      "nome": "Liberal",
+      "categoria": "Fragatas",
+      "classe": "Classe Niterói"
+    },
+    {
+      "codigo": "F44",
+      "nome": "Independência",
+      "categoria": "Fragatas",
+      "classe": "Classe Niterói"
+    },
+    {
+      "codigo": "F45",
+      "nome": "União",
+      "categoria": "Fragatas",
+      "classe": "Classe Niterói"
+    },
+    {
+      "codigo": "F49",
+      "nome": "Rademaker",
+      "categoria": "Fragatas",
+      "classe": "Classe Greenhalgh"
+    },
+    {
+      "codigo": "V32",
+      "nome": "Júlio de Noronha",
+      "categoria": "Corvetas",
+      "classe": "Classe Inhaúma"
+    },
+    {
+      "codigo": "V34",
+      "nome": "Barroso",
+      "categoria": "Corvetas",
+      "classe": "Classe Barroso"
+    },
+    {
+      "codigo": "S30",
+      "nome": "Tupi",
+      "categoria": "Submarinos",
+      "classe": "Classe Tupí"
+    },
+    {
+      "codigo": "S34",
+      "nome": "Tikuna",
+      "categoria": "Submarinos",
+      "classe": "Classe Tikuna"
+    },
+    {
+      "codigo": "S40",
+      "nome": "Riachuelo",
+      "categoria": "Submarinos",
+      "classe": "Classe Riachuelo"
+    },
+    {
+      "codigo": "S41",
+      "nome": "Humaitá",
+      "categoria": "Submarinos",
+      "classe": "Classe Riachuelo"
+    },
+    {
+      "codigo": "K120",
+      "nome": "Guillobel",
+      "categoria": "Navio de Socorro Submarino",
+      "classe": ""
+    },
+    {
+      "codigo": "G40",
+      "nome": "Bahia",
+      "categoria": "Navio Doca Multipropósito",
+      "classe": ""
+    },
+    {
+      "codigo": "G25",
+      "nome": "Almirante Saboia",
+      "categoria": "Navio de Desembarque de Carros de Combate",
+      "classe": ""
+    },
+    {
+      "codigo": "U27",
+      "nome": "Brasil",
+      "categoria": "Navio Escola",
+      "classe": ""
+    },
+    {
+      "codigo": "G23",
+      "nome": "Almirante Gastão Motta",
+      "categoria": "Navio Tanque",
+      "classe": ""
+    },
+    {
+      "codigo": "U20",
+      "nome": "Cisne Branco",
+      "categoria": "Navio-Veleiro",
+      "classe": ""
+    },
+    {
+      "codigo": "L10",
+      "nome": "Guarapari",
+      "categoria": "Embarcação de Dbq. de Carga Geral",
+      "classe": ""
+    },
+    {
+      "codigo": "L11",
+      "nome": "Tambaú",
+      "categoria": "Embarcação de Dbq. de Carga Geral",
+      "classe": ""
+    },
+    {
+      "codigo": "L12",
+      "nome": "Camboriú",
+      "categoria": "Embarcação de Dbq. de Carga Geral",
+      "classe": ""
+    },
+    {
+      "codigo": "L20",
+      "nome": "Marambaia",
+      "categoria": "Embarcação de Dbq. de Carga Geral",
+      "classe": ""
+    }
+  ]
+}
