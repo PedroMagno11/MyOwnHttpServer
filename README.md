@@ -6,7 +6,7 @@ Um projeto prático para desenvolver meu próprio servidor HTTP do zero, utiliza
 
 Criar um servidor HTTP funcional que:
 - Aceite conexões TCP via socket
-- Interprete requisições HTTP (GET, HEAD)
+- Interprete requisições HTTP (GET)
 - Sirva arquivos estáticos como HTML, CSS e imagens
 - Retorne respostas com status apropriados (200, 404, 400, etc.)
 - Suporte múltiplas conexões (concorrência com threads/processos)
