@@ -5,6 +5,7 @@ import br.com.pedromagno.adapter.ResponseWriter;
 import br.com.pedromagno.domain.HttpRequest;
 import br.com.pedromagno.domain.HttpResponse;
 import br.com.pedromagno.service.Router;
+import br.com.pedromagno.utils.AccessTracker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -45,7 +46,9 @@ public class ClientHandler implements Runnable {
         } catch (IOException e) {
             LOGGER.error("LOGGER - Erro ao processar o clientSocket: " + e.getMessage());
         } finally {
+            AccessTracker.getInstance().fecharConexao();
             try{
+                clientSocket.shutdownOutput();
                 clientSocket.close();
             } catch (IOException e) {
                 LOGGER.error("Erro ao fechar o clienteSocket: " + e.getMessage());
