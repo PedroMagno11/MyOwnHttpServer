@@ -1,5 +1,9 @@
 package br.com.pedromagno.domain;
 
+import br.com.pedromagno.adapter.file.FileResult;
+import br.com.pedromagno.adapter.file.StaticFileReader;
+
+import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
@@ -31,10 +35,11 @@ public class HttpResponse {
         HttpResponse response = new HttpResponse();
         response.setStatusCode(404);
         response.setReasonPhrase("Not Found");
-        byte[] body = "404 Not Found".getBytes();
-        response.setBody(body);
-        response.addHeader("Content-Type", "text/plain");
-        response.addHeader("Content-Length", String.valueOf(body.length));
+        FileResult file = StaticFileReader.read("/404.html");
+
+        response.setBody(file.content());
+        response.addHeader("Content-Type", file.contentType());
+        response.addHeader("Content-Length", String.valueOf(file.content().length));
         response.addHeader("Connection", "close");
         return response;
     }
@@ -56,6 +61,19 @@ public class HttpResponse {
         HttpResponse response = new HttpResponse();
         response.setStatusCode(400);
         response.setReasonPhrase("Bad Request");
+        response.setBody(body);
+        response.addHeader("Content-Type", "application/json");
+        response.addHeader("Content-Length", String.valueOf(body.length));
+        response.addHeader("Connection", "close");
+        return response;
+    }
+
+    public static HttpResponse notFoundJson(){
+        HttpResponse response = new HttpResponse();
+        response.setStatusCode(404);
+        response.setReasonPhrase("Not Found");
+        String json = "{\"error\":\"Not Found\"}";
+        byte[] body = json.getBytes(StandardCharsets.UTF_8);
         response.setBody(body);
         response.addHeader("Content-Type", "application/json");
         response.addHeader("Content-Length", String.valueOf(body.length));

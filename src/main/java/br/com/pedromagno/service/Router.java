@@ -49,7 +49,7 @@ public class Router {
 
             FileResult file = StaticFileReader.read("/api/api.json");
             if(!file.found()){
-                return HttpResponse.notFound();
+                return HttpResponse.notFoundJson();
             }
             return HttpResponse.ok(file.content(), file.contentType());
 
@@ -64,7 +64,7 @@ public class Router {
         if("GET".equals(method) && path.contains("/api/navios")){
             FileResult file = StaticFileReader.read("/api/navios.json");
             if(!file.found()){
-                return HttpResponse.notFound();
+                return HttpResponse.notFoundJson();
             }
             return HttpResponse.ok(file.content(), file.contentType());
         }
